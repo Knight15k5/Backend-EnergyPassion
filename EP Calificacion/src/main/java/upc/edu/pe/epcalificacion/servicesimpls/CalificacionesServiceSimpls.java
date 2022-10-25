@@ -16,4 +16,14 @@ public class CalificacionesServiceSimpls implements ICalificacionService {
     public void insert(Calificaciones calificacion){pR.save(calificacion);}
     @Override
     public List<Calificaciones> list(){return pR.findAll();}
+
+    @Override
+    public void delete(int idCalificacion) {
+
+    }
+
+    @Override
+    public List<Calificaciones> search(String nameCalificacion) {
+        return null;
+    }
 }
