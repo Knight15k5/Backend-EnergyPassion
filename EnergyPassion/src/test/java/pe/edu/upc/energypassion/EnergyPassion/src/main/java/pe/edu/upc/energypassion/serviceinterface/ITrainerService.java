@@ -9,6 +9,4 @@ public interface ITrainerService {
     List<Trainer>list();
     public void delete(int idTrainer);
     List<Trainer> search(String nameTrainer);
-
-
 }

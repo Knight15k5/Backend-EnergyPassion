@@ -5,8 +5,6 @@ import pe.edu.upc.energypassion.entities.Trainer;
 import pe.edu.upc.energypassion.repositories.ITrainerRepository;
 import pe.edu.upc.energypassion.serviceinterface.ITrainerService;
 
-import java.util.Date;
-import java.util.Optional;
 import java.util.List;
 @Service
 public class TrainerServicelmp implements ITrainerService {
@@ -22,6 +20,5 @@ public class TrainerServicelmp implements ITrainerService {
 
     @Override
     public List<Trainer> search(String nameTrainer) {return tR.buscarNombre(nameTrainer);}
-
 
 }
