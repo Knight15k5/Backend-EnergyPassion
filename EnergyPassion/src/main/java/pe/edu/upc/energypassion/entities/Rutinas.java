@@ -9,8 +9,9 @@ public class Rutinas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRutinas;
 
-    @Column(name = "Trainer_id", length = 45, nullable = false)
-    private int Trainer_id;
+    @ManyToOne
+    @JoinColumn(name = "idTrainer", nullable = false)
+    private Trainer trainer;
 
     @Column(name = "Tren_superior", length = 45, nullable = false)
     private String Tren_superior;
@@ -24,12 +25,12 @@ public class Rutinas {
     public Rutinas() {
     }
 
-    public Rutinas(int idRutinas, int trainer_id, String tren_superior, String tren_inferior, int tiempo) {
+    public Rutinas(int idRutinas, String tren_superior, String tren_inferior, int tiempo, Trainer trainer) {
         this.idRutinas = idRutinas;
-        this.Trainer_id = trainer_id;
         this.Tren_superior = tren_superior;
         this.Tren_inferior = tren_inferior;
         this.tiempo = tiempo;
+        this.trainer =trainer;
     }
 
     public int getIdRutinas() {
@@ -38,14 +39,6 @@ public class Rutinas {
 
     public void setIdRutinas(int idRutinas) {
         this.idRutinas = idRutinas;
-    }
-
-    public int getTrainer_id() {
-        return Trainer_id;
-    }
-
-    public void setTrainer_id(int trainer_id) {
-        Trainer_id = trainer_id;
     }
 
     public String getTren_superior() {
@@ -72,4 +65,11 @@ public class Rutinas {
         this.tiempo = tiempo;
     }
 
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
 }
