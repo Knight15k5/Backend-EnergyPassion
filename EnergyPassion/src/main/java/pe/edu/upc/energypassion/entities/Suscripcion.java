@@ -11,6 +11,9 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 @Table(name = "Suscripcion")
 public class Suscripcion implements Serializable{
     private static final long serialVersionUID = 1L;
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idSuscripcion;
@@ -23,18 +26,16 @@ public class Suscripcion implements Serializable{
     @JoinColumn(name = "idTipo_Suscripcion", nullable = false)
     private Tipo_Suscripcion Tipo_Suscripcion;
 
-
-
-    public Suscripcion() {
-    }
-
-    public Suscripcion(int idSuscripcion, int precio_del_plan, String descripcion_plan, Tipo_Suscripcion tipo_suscripcion) {
+    public Suscripcion(int idSuscripcion, int precio_del_plan, String descripcion_plan, pe.edu.upc.energypassion.entities.Tipo_Suscripcion tipo_Suscripcion) {
         this.idSuscripcion = idSuscripcion;
-        this.Precio_del_plan = precio_del_plan;
-        this.Descripcion_plan = descripcion_plan;
-        this.Tipo_Suscripcion = Tipo_Suscripcion;
+        Precio_del_plan = precio_del_plan;
+        Descripcion_plan = descripcion_plan;
+        Tipo_Suscripcion = tipo_Suscripcion;
     }
+    public Suscripcion() {
+        super();
 
+    }
     public int getIdSuscripcion() {
         return idSuscripcion;
     }
@@ -59,12 +60,11 @@ public class Suscripcion implements Serializable{
         Descripcion_plan = descripcion_plan;
     }
 
-
-    public Tipo_Suscripcion getTipo_suscripcion() {
+    public pe.edu.upc.energypassion.entities.Tipo_Suscripcion getTipo_Suscripcion() {
         return Tipo_Suscripcion;
     }
 
-    public void setTipo_suscripcion(Tipo_Suscripcion Tipo_suscripcion) {
-        this.Tipo_Suscripcion = Tipo_Suscripcion;
+    public void setTipo_Suscripcion(pe.edu.upc.energypassion.entities.Tipo_Suscripcion tipo_Suscripcion) {
+        Tipo_Suscripcion = tipo_Suscripcion;
     }
 }
