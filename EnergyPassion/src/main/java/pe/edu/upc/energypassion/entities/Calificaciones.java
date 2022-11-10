@@ -10,13 +10,16 @@ public class Calificaciones {
     private int idCalificacion;
     @Column(name = "calificadotrainer",length = 45,nullable = false)
     private String calificado;
-    @Column(name = "idTrainer",nullable = false)
-    private int idTrainer;
+
+    @ManyToOne
+    @JoinColumn(name = "idTrainer",nullable = false)
+    private Trainer idTrainer;
 
     public Calificaciones(){
+        super();
     }
 
-    public Calificaciones(int idCalificacion, String calificado, int idTrainer) {
+    public Calificaciones(int idCalificacion, String calificado, Trainer idTrainer) {
         this.idCalificacion = idCalificacion;
         this.calificado = calificado;
         this.idTrainer = idTrainer;
@@ -38,11 +41,11 @@ public class Calificaciones {
         this.calificado = calificado;
     }
 
-    public int getIdTrainer() {
+    public Trainer getIdTrainer() {
         return idTrainer;
     }
 
-    public void setIdTrainer(int idTrainer) {
+    public void setIdTrainer(Trainer idTrainer) {
         this.idTrainer = idTrainer;
     }
 }
