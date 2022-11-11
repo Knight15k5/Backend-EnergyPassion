@@ -1,25 +1,29 @@
 package pe.edu.upc.energypassion.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Calificaiones")
-public class Calificaciones {
+public class Calificaciones implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCalificacion;
     @Column(name = "calificadotrainer",length = 45,nullable = false)
     private String calificado;
-    @Column(name = "idTrainer",nullable = false)
-    private int idTrainer;
+    @ManyToOne
+    @JoinColumn(name = "idCliente", nullable = false)
+    private Cliente cliente;
 
     public Calificaciones(){
     }
 
-    public Calificaciones(int idCalificacion, String calificado, int idTrainer) {
+    public Calificaciones(int idCalificacion, String calificado, Cliente cliente) {
         this.idCalificacion = idCalificacion;
         this.calificado = calificado;
-        this.idTrainer = idTrainer;
+        this.cliente=cliente;
     }
 
     public int getIdCalificacion() {
@@ -38,11 +42,7 @@ public class Calificaciones {
         this.calificado = calificado;
     }
 
-    public int getIdTrainer() {
-        return idTrainer;
-    }
+    public Cliente getCliente() {return cliente;}
 
-    public void setIdTrainer(int idTrainer) {
-        this.idTrainer = idTrainer;
-    }
+    public void setCliente(Cliente cliente) {this.cliente = cliente;}
 }

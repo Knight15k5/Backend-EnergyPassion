@@ -37,7 +37,6 @@ public class Trainer implements Serializable{
     @ManyToOne
     @JoinColumn(name = "idRutinas", nullable = false)
     private Rutinas rutinas;
-
     @ManyToOne
     @JoinColumn(name = "idCalificacion", nullable = false)
     private Calificaciones calificaciones;

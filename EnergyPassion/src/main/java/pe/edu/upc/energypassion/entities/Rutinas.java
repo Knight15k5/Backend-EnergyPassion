@@ -8,10 +8,6 @@ public class Rutinas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRutinas;
-
-    @Column(name = "Trainer_id", length = 45, nullable = false)
-    private int Trainer_id;
-
     @Column(name = "Tren_superior", length = 45, nullable = false)
     private String Tren_superior;
 
@@ -24,9 +20,8 @@ public class Rutinas {
     public Rutinas() {
     }
 
-    public Rutinas(int idRutinas, int trainer_id, String tren_superior, String tren_inferior, int tiempo) {
+    public Rutinas(int idRutinas, String tren_superior, String tren_inferior, int tiempo) {
         this.idRutinas = idRutinas;
-        this.Trainer_id = trainer_id;
         this.Tren_superior = tren_superior;
         this.Tren_inferior = tren_inferior;
         this.tiempo = tiempo;
@@ -38,14 +33,6 @@ public class Rutinas {
 
     public void setIdRutinas(int idRutinas) {
         this.idRutinas = idRutinas;
-    }
-
-    public int getTrainer_id() {
-        return Trainer_id;
-    }
-
-    public void setTrainer_id(int trainer_id) {
-        Trainer_id = trainer_id;
     }
 
     public String getTren_superior() {
@@ -71,5 +58,4 @@ public class Rutinas {
     public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
     }
-
 }

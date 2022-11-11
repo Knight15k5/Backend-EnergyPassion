@@ -21,9 +21,7 @@ public class RutinasServiceImpl implements IRutinasService {
     public void delete(int idRutinas){
         r.deleteById(idRutinas);
     }
-
     @Override
-    public  List<Rutinas>search(String Tren_superior){return r.buscarIDrutinas(Tren_superior);}
-
+    public  List<Rutinas>search(int idRutina){return r.buscarIDrutinas(idRutina);}
 
 }
