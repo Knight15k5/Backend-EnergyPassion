@@ -17,7 +17,7 @@ import pe.edu.upc.energypassion.serviceinterface.ITipoSuscripcionService;
 
 
 @RestController
-@RequestMapping("/tipo_suscripcion")
+@RequestMapping("/tiposuscripcion")//conectar front con back
 public class Tipo_SuscripcionController {
 
     @Autowired

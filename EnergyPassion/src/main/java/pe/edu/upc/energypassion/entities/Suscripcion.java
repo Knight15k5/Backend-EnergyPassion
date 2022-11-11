@@ -1,9 +1,19 @@
 package pe.edu.upc.energypassion.entities;
 import javax.persistence.*;
 
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 @Entity
 @Table(name = "Suscripcion")
-public class Suscripcion {
+public class Suscripcion implements Serializable{
+    private static final long serialVersionUID = 1L;
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idSuscripcion;
@@ -11,18 +21,21 @@ public class Suscripcion {
     private int Precio_del_plan;
     @Column(name = "Descripcion_plan",length = 45,nullable = false)
     private String Descripcion_plan;
-    @Column(name = "Tipo_suscripcion_id",length = 45,nullable = false)
-    private int Tipo_suscripcion_id;
 
-    public Suscripcion() {
-    }
+    @ManyToOne
+    @JoinColumn(name = "idTipo_Suscripcion", nullable = false)
+    private Tipo_Suscripcion Tipo_Suscripcion;
 
-    public Suscripcion(int idSuscripcion, int precio_del_plan, String descripcion_plan) {
+    public Suscripcion(int idSuscripcion, int precio_del_plan, String descripcion_plan, pe.edu.upc.energypassion.entities.Tipo_Suscripcion tipo_Suscripcion) {
         this.idSuscripcion = idSuscripcion;
-        this.Precio_del_plan = precio_del_plan;
-        this.Descripcion_plan = descripcion_plan;
+        Precio_del_plan = precio_del_plan;
+        Descripcion_plan = descripcion_plan;
+        Tipo_Suscripcion = tipo_Suscripcion;
     }
+    public Suscripcion() {
+        super();
 
+    }
     public int getIdSuscripcion() {
         return idSuscripcion;
     }
@@ -47,11 +60,11 @@ public class Suscripcion {
         Descripcion_plan = descripcion_plan;
     }
 
-    public int getTipo_suscripcion_id() {
-        return Tipo_suscripcion_id;
+    public pe.edu.upc.energypassion.entities.Tipo_Suscripcion getTipo_Suscripcion() {
+        return Tipo_Suscripcion;
     }
 
-    public void setTipo_suscripcion_id(int tipo_suscripcion_id) {
-        Tipo_suscripcion_id = tipo_suscripcion_id;
+    public void setTipo_Suscripcion(pe.edu.upc.energypassion.entities.Tipo_Suscripcion tipo_Suscripcion) {
+        Tipo_Suscripcion = tipo_Suscripcion;
     }
 }
