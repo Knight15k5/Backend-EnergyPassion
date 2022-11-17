@@ -32,6 +32,8 @@ public class ReservaController {
     public  List<Reserva> buscar(@RequestBody Reserva r) throws ParseException {
         List<Reserva> listaR;
         listaR = ps.buscar(r.getCliente().getNombre());
+
+
         if (listaR.isEmpty()) {
 
             listaR = ps.buscarTrainer(r.getTrainer().getNombre());
