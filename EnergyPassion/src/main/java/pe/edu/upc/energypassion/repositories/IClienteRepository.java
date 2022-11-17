@@ -12,9 +12,7 @@ public interface IClienteRepository extends JpaRepository<Cliente,Integer> {
     @Query("from Cliente cli " + " where cli.Nombre like %:Nombre")
     List<Cliente> buscarnombreCliente(@Param("Nombre") String Nombre);
 
-    List<Cliente> findByApellidoC(String valor);
-
-    @Query(value = "SELECT clientes.nombre,rutinas.id_rutinas,suscripcion.id_suscripcion\n" +
+    @Query(value = "SELECT clientes.nombre,rutinas.id_rutinas,suscripcion.descripcion_plan\n" +
             "from clientes INNER join rutinas ON clientes.id_rutinas = rutinas.id_rutinas\n" +
             "INNER join suscripcion ON clientes.id_suscripcion = suscripcion.id_suscripcion",nativeQuery = true)
     List<Cliente> buscarComplejo();

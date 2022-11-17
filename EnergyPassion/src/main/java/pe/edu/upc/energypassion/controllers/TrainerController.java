@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.energypassion.entities.Respuesta;
 import pe.edu.upc.energypassion.entities.Trainer;
 import pe.edu.upc.energypassion.serviceinterface.ITrainerService;
 
@@ -36,7 +37,7 @@ public class TrainerController {
         return tService.search(t.getNombre());
     }
     @GetMapping("/buscarcomplejo")
-    public List<Trainer> buscarComplejo(){return tService.buscarComplejo();}
+    public List<Respuesta> buscarComplejo(){return tService.buscarComplejo();}
     @PostMapping("/buscarapellido")
     public List<Trainer>buscarApellido(@RequestBody String apellido){
         return tService.buscarApellido(apellido);

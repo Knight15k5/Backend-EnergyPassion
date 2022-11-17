@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.upc.energypassion.entities.Cliente;
+import pe.edu.upc.energypassion.entities.Respuesta;
 import pe.edu.upc.energypassion.repositories.IClienteRepository;
 import pe.edu.upc.energypassion.serviceinterface.IClienteService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,14 +33,6 @@ public class ClienteServiceImp implements IClienteService {
     @Override
     public  List<Cliente>search(String nameCliente){return cli.buscarnombreCliente(nameCliente);}
 
-    @Override
-    public List<Cliente> buscarApellidoC(String apellido) {
-        return cli.findByApellidoC(apellido);
-    }
 
-    @Override
-    public List<Cliente> buscarComplejo() {
-        return cli.buscarComplejo();
-    }
 
 }
