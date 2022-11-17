@@ -4,14 +4,15 @@ import org.springframework.data.repository.query.Param;
 import pe.edu.upc.energypassion.entities.Suscripcion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pe.edu.upc.energypassion.entities.Tipo_Suscripcion;
+import pe.edu.upc.energypassion.entities.TipoSuscripcion;
 
 import java.util.List;
-
-
 @Repository
-public interface ITipoSuscripcionRepository extends JpaRepository<Tipo_Suscripcion,Integer> {
+public interface ITipoSuscripcionRepository extends JpaRepository<TipoSuscripcion,Integer> {
+
     //JPQL
-    @Query("FROM Tipo_Suscripcion p WHERE cast(p.idTipoSuscripcion as string )  LIKE %:idTipoSuscripcion")
-    List<Tipo_Suscripcion> buscarTipoSuscripcion(@Param("idTipoSuscripcion") int idTipoSuscripcion);
+    @Query("FROM TipoSuscripcion p WHERE cast(p.idTipoSuscripcion as string )  LIKE %:idTipoSuscripcion")
+    List<TipoSuscripcion> buscarTipoSuscripcion(@Param("idTipoSuscripcion") int idTipoSuscripcion);
+
+
 }

@@ -1,27 +1,19 @@
 package pe.edu.upc.energypassion.controllers;
 
-import java.text.ParseException;
-import java.util.List;
-import java.util.Optional;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
-import pe.edu.upc.energypassion.entities.Tipo_Suscripcion;
+import pe.edu.upc.energypassion.entities.TipoSuscripcion;
 import pe.edu.upc.energypassion.entities.Suscripcion;
 import pe.edu.upc.energypassion.serviceinterface.ISuscripcionService;
 
-
-
-
+import java.text.ParseException;
+import java.util.List;
+import java.util.Optional;
 @RestController
 @RequestMapping("/suscripcion")
 
-public class    SuscripcionController {
+public class SuscripcionController {
     @Autowired
     private ISuscripcionService pService;
 
@@ -38,11 +30,10 @@ public class    SuscripcionController {
     @PutMapping
     public void modificar(@RequestBody Suscripcion p) { pService.insert(p);}
     @PostMapping("/buscar")
-    public List<Suscripcion> buscar(@RequestBody Suscripcion t) throws ParseException{
-
+    public List<Suscripcion> buscar(@RequestBody Suscripcion t)throws ParseException {
         return pService.search(t.getDescripcion_plan());
     }
-  /*  @GetMapping("/{id}")
+    /*  @GetMapping("/{id}")
     public Optional<Suscripcion> listarId(@PathVariable("id") Integer id) {
         return pService.listarid(id);
     }

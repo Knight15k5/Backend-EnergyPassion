@@ -26,12 +26,6 @@ public class CalificacionesController {
     public void  modificar(@RequestBody Calificaciones c){
         pS.insert(c);}
     @PostMapping("/buscar")
-    public List<Calificaciones> buscar(@RequestBody Calificaciones c) throws ParseException {List<Calificaciones> listaCalificaciones ;
-        listaCalificaciones= pS.search(c.getCalificado());
-        if (listaCalificaciones.isEmpty()) {
-
-            listaCalificaciones = pS.searchP(c.getIdTrainer().getNombre());
-        }
-        return listaCalificaciones;
-    }
+    public List<Calificaciones> buscar(@RequestBody Calificaciones c)throws ParseException
+    {return pS.search(c.getCalificado());}
 }

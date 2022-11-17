@@ -1,12 +1,17 @@
 package pe.edu.upc.energypassion.entities;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
 import  javax.persistence.*;
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "Resreva")
-public class Reserva {
+@Table(name = "Reserva")
+public class Reserva implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +20,10 @@ public class Reserva {
     @Column(name = "Mensaje", length = 45, nullable = false)
     private String Mensaje;
     @Column(name = "Fecha", length = 45, nullable = false)
-    private Date Fecha;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private LocalDate Fecha;
     @Column(name = "Hora", length = 45, nullable = false)
-    private Time Hora;
+    private String Hora;
     @ManyToOne
     @JoinColumn(name = "CLiente", nullable = false)
     private Cliente Cliente;
@@ -26,21 +32,24 @@ public class Reserva {
     @JoinColumn(name = "Trainer", nullable = false)
     private Trainer Trainer;
 
+    @ManyToOne
+    @JoinColumn(name = "Rutinas", nullable = false)
+    private Rutinas Rutinas;
 
-    public Reserva(int idReserva, String Mensaje,Date Fecha, Time Hora, pe.edu.upc.energypassion.entities.Cliente idCliente, pe.edu.upc.energypassion.entities.Trainer idTrainer, pe.edu.upc.energypassion.entities.Rutinas idRutinas) {
+    public Reserva(int idReserva, String mensaje, LocalDate fecha, String hora, pe.edu.upc.energypassion.entities.Cliente cliente, pe.edu.upc.energypassion.entities.Trainer trainer, pe.edu.upc.energypassion.entities.Rutinas rutinas) {
         this.idReserva = idReserva;
-        Fecha = Fecha;
-        Hora = Hora;
-        Cliente = Cliente;
-        Trainer = Trainer;
-        Mensaje = Mensaje;
-
-
+        Mensaje = mensaje;
+        Fecha = fecha;
+        Hora = hora;
+        Cliente = cliente;
+        Trainer = trainer;
+        Rutinas = rutinas;
     }
 
     public Reserva() {
         super();
     }
+
 
     public int getIdReserva() {
         return idReserva;
@@ -50,19 +59,27 @@ public class Reserva {
         this.idReserva = idReserva;
     }
 
-    public Date getFecha() {
+    public String getMensaje() {
+        return Mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        Mensaje = mensaje;
+    }
+
+    public LocalDate getFecha() {
         return Fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         Fecha = fecha;
     }
 
-    public Time getHora() {
+    public String getHora() {
         return Hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(String hora) {
         Hora = hora;
     }
 
@@ -82,12 +99,12 @@ public class Reserva {
         Trainer = trainer;
     }
 
-    public String getMensaje() {
-        return Mensaje;
+    public pe.edu.upc.energypassion.entities.Rutinas getRutinas() {
+        return Rutinas;
     }
 
-    public void setMensaje(String mensaje) {
-        Mensaje = mensaje;
+    public void setRutinas(pe.edu.upc.energypassion.entities.Rutinas rutinas) {
+        Rutinas = rutinas;
     }
 }
 

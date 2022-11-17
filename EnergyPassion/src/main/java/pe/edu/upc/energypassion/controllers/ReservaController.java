@@ -2,12 +2,18 @@ package pe.edu.upc.energypassion.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import pe.edu.upc.energypassion.entities.Rutinas;
+import pe.edu.upc.energypassion.entities.Trainer;
+import pe.edu.upc.energypassion.entities.Cliente;
 import pe.edu.upc.energypassion.entities.Reserva;
 import pe.edu.upc.energypassion.serviceinterface.IReservaService;
 
 import java.text.ParseException;
 import java.util.List;
 
+@RestController
+@RequestMapping("/reserva")
 public class ReservaController {
     @Autowired
     private IReservaService ps;
@@ -20,7 +26,7 @@ public class ReservaController {
     public List<Reserva> listar(){return ps.listar();}
     @DeleteMapping("/id")
     public  void  eliminar(@PathVariable("id") Integer id){ps.eliminar(id);}
-     @PutMapping
+    @PutMapping
     public void modificar(@RequestBody Reserva r){ps.insertar(r);}
     @PostMapping("/buscar")
     public  List<Reserva> buscar(@RequestBody Reserva r) throws ParseException {
@@ -38,4 +44,4 @@ public class ReservaController {
         return listaR;
     }
 
-    }
+}

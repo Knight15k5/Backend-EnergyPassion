@@ -1,14 +1,19 @@
 package pe.edu.upc.energypassion.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDate;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 @Entity
 @Table(name = "Clientes")
-public class Cliente {
+public class Cliente implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+    private int idCliente;
     @Column(name = "Nombre", length = 45, nullable = false)
     private String Nombre;
 
@@ -21,22 +26,35 @@ public class Cliente {
     @Column(name = "edad", length = 45, nullable = false)
     private int edad;
 
+    @ManyToOne
+    @JoinColumn(name = "idSuscripcion", nullable = false)
+    private Suscripcion Suscripcion;
+
+    @ManyToOne
+    @JoinColumn(name = "idRutinas", nullable = false)
+    private Rutinas Rutinas;
+    //suscripcion id
+    //rutinas id
+
 public Cliente(){}
 
-    public Cliente(int id, String nombre, String Apellido, String fechanacimiento, int edad) {
-        this.id = id;
-        this.Nombre = nombre;
-        this.Apellido = Apellido;
+    public Cliente(int idCliente, String nombre, String apellido, String fechanacimiento, int edad, pe.edu.upc.energypassion.entities.Suscripcion suscripcion, pe.edu.upc.energypassion.entities.Rutinas rutinas) {
+        this.idCliente = idCliente;
+        Nombre = nombre;
+        Apellido = apellido;
         this.fechanacimiento = fechanacimiento;
         this.edad = edad;
+        Suscripcion = suscripcion;
+        Rutinas = rutinas;
     }
 
-    public int getId() {
-        return id;
+
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNombre() {
@@ -69,5 +87,21 @@ public Cliente(){}
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public pe.edu.upc.energypassion.entities.Suscripcion getSuscripcion() {
+        return Suscripcion;
+    }
+
+    public void setSuscripcion(pe.edu.upc.energypassion.entities.Suscripcion suscripcion) {
+        Suscripcion = suscripcion;
+    }
+
+    public pe.edu.upc.energypassion.entities.Rutinas getRutinas() {
+        return Rutinas;
+    }
+
+    public void setRutinas(pe.edu.upc.energypassion.entities.Rutinas rutinas) {
+        Rutinas = rutinas;
     }
 }

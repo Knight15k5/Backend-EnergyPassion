@@ -10,5 +10,5 @@ public interface IRutinasService {
     List<Rutinas>list();
     public void delete(int idRutinas);
 
-    List<Rutinas>search(String Tren_superior);
+    List<Rutinas>search(int idRutinas);
 }
