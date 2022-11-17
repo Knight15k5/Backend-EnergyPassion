@@ -17,10 +17,10 @@ public class CalificacionesServiceelmp implements ICalificacionService {
 
     @Override
     public void delete(int idCalificacion) {
-
+        pR.deleteById(idCalificacion);
     }
     @Override
-    public List<Calificaciones> search(String nameCalificacion) {
-        return null;
+    public List<Calificaciones> search(String calificado) {
+        return pR.buscarCalificado(calificado);
     }
 }

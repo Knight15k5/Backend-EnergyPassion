@@ -13,4 +13,12 @@ public interface ITrainerRepository extends JpaRepository<Trainer,Integer> {
     @Query("FROM Trainer t WHERE t.nombre LIKE %:nameTrainer")
     List<Trainer> buscarNombre(@Param("nameTrainer") String nameTrainer);
 
+    List<Trainer> findByApellido(String valor);
+
+    @Query(value = "SELECT trainer.nombre,calificaiones.id_calificacion,rutinas.id_rutinas\n" +
+            "from trainer INNER join calificaiones\n" +
+            "ON trainer.id_calificacion=calificaiones.id_calificacion\n" +
+            "INNER join rutinas ON trainer.id_rutinas = rutinas.id_rutinas", nativeQuery = true)
+    List<Trainer> buscarComplejo();
+
 }

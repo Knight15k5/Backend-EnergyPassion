@@ -23,5 +23,15 @@ public class TrainerServicelmp implements ITrainerService {
     @Override
     public List<Trainer> search(String nameTrainer) {return tR.buscarNombre(nameTrainer);}
 
+    @Override
+    public List<Trainer> buscarApellido(String apellido) {
+        return tR.findByApellido(apellido);
+    }
+
+    @Override
+    public List<Trainer> buscarComplejo() {
+        return tR.buscarComplejo();
+    }
+
 
 }

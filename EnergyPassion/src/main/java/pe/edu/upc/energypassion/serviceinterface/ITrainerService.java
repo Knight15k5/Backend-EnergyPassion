@@ -10,5 +10,7 @@ public interface ITrainerService {
     public void delete(int idTrainer);
     List<Trainer> search(String nameTrainer);
 
+    List<Trainer>buscarApellido(String apellido);
+    List<Trainer> buscarComplejo();
 
 }

@@ -35,4 +35,10 @@ public class TrainerController {
     public List<Trainer> buscar(@RequestBody Trainer t) {
         return tService.search(t.getNombre());
     }
+    @GetMapping("/buscarcomplejo")
+    public List<Trainer> buscarComplejo(){return tService.buscarComplejo();}
+    @PostMapping("/buscarapellido")
+    public List<Trainer>buscarApellido(@RequestBody String apellido){
+        return tService.buscarApellido(apellido);
+    }
 }
