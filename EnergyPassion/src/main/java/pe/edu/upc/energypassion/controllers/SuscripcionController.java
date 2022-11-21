@@ -3,6 +3,7 @@ package pe.edu.upc.energypassion.controllers;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.energypassion.entities.RespuestaSuscripcion;
 import pe.edu.upc.energypassion.entities.TipoSuscripcion;
 import pe.edu.upc.energypassion.entities.Suscripcion;
 import pe.edu.upc.energypassion.serviceinterface.ISuscripcionService;
@@ -39,7 +40,7 @@ public class SuscripcionController {
     }
 */
     @GetMapping("/buscarcomplejo")
-    public List<Suscripcion> buscarComplejo(){
+    public List<RespuestaSuscripcion> buscarComplejo(){
         return pService.buscarComplejo();
     }
 

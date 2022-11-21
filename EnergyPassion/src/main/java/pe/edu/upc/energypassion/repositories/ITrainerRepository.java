@@ -10,15 +10,12 @@ import java.util.Date;
 @Repository
 public interface ITrainerRepository extends JpaRepository<Trainer,Integer> {
     //JPQL
-    @Query("FROM Trainer t WHERE t.nombre LIKE %:nameTrainer")
+    @Query("FROM Trainer t WHERE t.nombret LIKE %:nameTrainer")
     List<Trainer> buscarNombre(@Param("nameTrainer") String nameTrainer);
 
     List<Trainer> findByApellido(String valor);
 
-    @Query(value = "SELECT trainer.nombre,calificaiones.id_calificacion,rutinas.id_rutinas\n" +
-            "from trainer INNER join calificaiones\n" +
-            "ON trainer.id_calificacion=calificaiones.id_calificacion\n" +
-            "INNER join rutinas ON trainer.id_rutinas = rutinas.id_rutinas", nativeQuery = true)
-    List<Trainer> buscarComplejo();
+    @Query(value = "SELECT trainer.nombret,calificaiones.id_calificacion,rutinas.id_rutinas from trainer INNER join calificaiones ON trainer.id_calificacion=calificaiones.id_calificacion INNER join rutinas ON trainer.id_rutinas = rutinas.id_rutinas", nativeQuery = true)
+    List<String[]> buscarComplejo();
 
 }

@@ -1,10 +1,12 @@
 package pe.edu.upc.energypassion.serviceimpls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.energypassion.entities.Respuesta;
 import pe.edu.upc.energypassion.entities.Trainer;
 import pe.edu.upc.energypassion.repositories.ITrainerRepository;
 import pe.edu.upc.energypassion.serviceinterface.ITrainerService;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 import java.util.List;
@@ -29,8 +31,16 @@ public class TrainerServicelmp implements ITrainerService {
     }
 
     @Override
-    public List<Trainer> buscarComplejo() {
-        return tR.buscarComplejo();
+    public List<Respuesta> buscarComplejo() {
+        List<Respuesta> lista=new ArrayList<>();
+        tR.buscarComplejo().forEach(y->{
+            Respuesta r = new Respuesta();
+            r.setTrainer(y[0]);
+            r.setRutinas(y[1]);
+            r.setCalificaiones(y[2]);
+            lista.add(r);
+        });
+        return lista;
     }
 
 

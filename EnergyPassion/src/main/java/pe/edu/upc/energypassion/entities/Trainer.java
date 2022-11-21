@@ -17,8 +17,8 @@ public class Trainer implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTrainer;
-    @Column(name = "nombre", length = 45, nullable = false)
-    private String nombre;
+    @Column(name = "nombret", length = 45, nullable = false)
+    private String nombret;
     @Column(name = "apellido", length = 45, nullable = false)
     private String apellido;
     @Column(name = "horario", length = 45, nullable = false)
@@ -43,9 +43,9 @@ public class Trainer implements Serializable{
 
     public Trainer() {
     }
-    public Trainer(int idTrainer, String nombre, String apellido, String horario, String edad, String sexo, String nickname, String password, String email, Rutinas rutinas, Calificaciones calificaciones) {
+    public Trainer(int idTrainer, String nombret, String apellido, String horario, String edad, String sexo, String nickname, String password, String email, Rutinas rutinas, Calificaciones calificaciones) {
         this.idTrainer = idTrainer;
-        this.nombre = nombre;
+        this.nombret = nombret;
         this.nickname = nickname;
         this.horario=horario;
         this.email=email;
@@ -66,11 +66,11 @@ public class Trainer implements Serializable{
     }
 
     public String getNombre() {
-        return nombre;
+        return nombret;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombret) {
+        this.nombret = nombret;
     }
 
     public String getApellido() {return apellido;}

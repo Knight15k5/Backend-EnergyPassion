@@ -36,10 +36,6 @@ public class ClienteController {
         return ClService.search(t.getNombre());
     }
     @GetMapping("/buscarcomplejo")
-    public List<Cliente> buscarComplejo(){return ClService.buscarComplejo();}
+    public List<RespuestaCliente> buscarComplejo(){return ClService.buscarComplejo();}
 
-    @PostMapping("/buscarapellido")
-    public List<Cliente>buscarApellidoC(@RequestBody String apellido){
-        return ClService.buscarApellidoC(apellido);
-    }
 }

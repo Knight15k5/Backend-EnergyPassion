@@ -1,12 +1,14 @@
 package pe.edu.upc.energypassion.entities;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
 import  javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -19,9 +21,11 @@ public class Reserva implements Serializable {
 
     @Column(name = "Mensaje", length = 45, nullable = false)
     private String Mensaje;
+
     @Column(name = "Fecha", length = 45, nullable = false)
-    @JsonSerialize(using = ToStringSerializer.class)
-    private LocalDate Fecha;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date Fecha;
     @Column(name = "Hora", length = 45, nullable = false)
     private String Hora;
     @ManyToOne
@@ -36,7 +40,7 @@ public class Reserva implements Serializable {
     @JoinColumn(name = "Rutinas", nullable = false)
     private Rutinas Rutinas;
 
-    public Reserva(int idReserva, String mensaje, LocalDate fecha, String hora, pe.edu.upc.energypassion.entities.Cliente cliente, pe.edu.upc.energypassion.entities.Trainer trainer, pe.edu.upc.energypassion.entities.Rutinas rutinas) {
+    public Reserva(int idReserva, String mensaje, Date fecha, String hora, pe.edu.upc.energypassion.entities.Cliente cliente, pe.edu.upc.energypassion.entities.Trainer trainer, pe.edu.upc.energypassion.entities.Rutinas rutinas) {
         this.idReserva = idReserva;
         Mensaje = mensaje;
         Fecha = fecha;
@@ -67,11 +71,11 @@ public class Reserva implements Serializable {
         Mensaje = mensaje;
     }
 
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return Fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Date fecha) {
         Fecha = fecha;
     }
 

@@ -1,6 +1,7 @@
 package pe.edu.upc.energypassion.serviceimpls;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 import pe.edu.upc.energypassion.entities.Reserva;
+import pe.edu.upc.energypassion.entities.Respuesta;
+import pe.edu.upc.energypassion.entities.RespuestaReserva;
 import pe.edu.upc.energypassion.repositories.IReservaRepository;
 import pe.edu.upc.energypassion.serviceinterface.IReservaService;
 
@@ -68,7 +71,16 @@ public class ReservaServiceImpl implements IReservaService {
     }
 
     @Override
-    public List<Reserva> buscarComplejo() {
-        return sR.buscarComplejo();
+    public List<RespuestaReserva> buscarComplejo() {
+        List<RespuestaReserva> lista=new ArrayList<>();
+        sR.buscarComplejo().forEach(y->{
+            RespuestaReserva r = new RespuestaReserva();
+            r.setReserva(y[0]);
+            r.setClientes(y[1]);
+            r.setTrainer(y[2]);
+            r.setRutinas(y[3]);
+            lista.add(r);
+        });
+        return lista;
     }
 }

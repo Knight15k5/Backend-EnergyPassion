@@ -7,9 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.upc.energypassion.entities.Cliente;
+import pe.edu.upc.energypassion.entities.Respuesta;
+import pe.edu.upc.energypassion.entities.RespuestaCliente;
 import pe.edu.upc.energypassion.repositories.IClienteRepository;
 import pe.edu.upc.energypassion.serviceinterface.IClienteService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,13 +35,18 @@ public class ClienteServiceImp implements IClienteService {
     public  List<Cliente>search(String nameCliente){return cli.buscarnombreCliente(nameCliente);}
 
     @Override
-    public List<Cliente> buscarApellidoC(String apellido) {
-        return cli.findByApellidoC(apellido);
+    public List<RespuestaCliente> buscarComplejo() {
+        List<RespuestaCliente> lista=new ArrayList<>();
+        cli.buscarComplejo().forEach(y->{
+            RespuestaCliente r = new RespuestaCliente();
+            r.setClientes(y[0]);
+            r.setRutinas(y[1]);
+            r.setSuscripcion(y[2]);
+            lista.add(r);
+        });
+        return lista;
     }
 
-    @Override
-    public List<Cliente> buscarComplejo() {
-        return cli.buscarComplejo();
-    }
+
 
 }
