@@ -6,15 +6,11 @@ public class Respuesta {
     private String trainer;
     private String calificaiones;
     private String rutinas;
-    private String clientes;
-    private String suscripcion;
 
-    public Respuesta(String trainer, String calificaiones, String rutinas, String clientes, String suscripcion) {
+    public Respuesta(String trainer, String calificaiones, String rutinas) {
         this.trainer = trainer;
         this.calificaiones = calificaiones;
         this.rutinas = rutinas;
-        this.clientes = clientes;
-        this.suscripcion = suscripcion;
     }
 
     public Respuesta() {
@@ -45,19 +41,4 @@ public class Respuesta {
         this.rutinas = rutinas;
     }
 
-    public String getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(String clientes) {
-        this.clientes = clientes;
-    }
-
-    public String getSuscripcion() {
-        return suscripcion;
-    }
-
-    public void setSuscripcion(String suscripcion) {
-        this.suscripcion = suscripcion;
-    }
 }

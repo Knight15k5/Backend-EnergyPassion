@@ -15,5 +15,5 @@ public interface ISuscripcionRepository extends JpaRepository<Suscripcion,Intege
 
  @Query(value = "SELECT suscripcion.descripcion_plan, tipo_suscripcion.id_tipo_suscripcion\n" +
          "FROM suscripcion INNER join tipo_suscripcion ON suscripcion.id_tipo_suscripcion = tipo_suscripcion.id_tipo_suscripcion",nativeQuery = true)
- List<Suscripcion> buscarComplejo();
+ List<String[]> buscarComplejo();
 }

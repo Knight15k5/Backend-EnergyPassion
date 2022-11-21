@@ -23,6 +23,6 @@ public interface IReservaRepository extends JpaRepository<Reserva, Integer> {
             "FROM reserva INNER join clientes on reserva.cliente = clientes.id_cliente\n" +
             "INNER join trainer ON reserva.trainer = trainer.id_trainer\n" +
             "INNER join rutinas ON reserva.rutinas = rutinas.id_rutinas", nativeQuery = true)
-    List<Reserva> buscarComplejo();
+    List<String[]> buscarComplejo();
 
 }
