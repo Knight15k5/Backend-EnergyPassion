@@ -1,33 +1,42 @@
 package pe.edu.upc.energypassion.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDate;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 @Entity
-@Table(name = "Calificaiones")
-public class Calificaciones {
+@Table(name = "calificacion")
+public class Calificaciones implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCalificacion;
-    @Column(name = "calificadotrainer",length = 45,nullable = false)
-    private String calificado;
-    @Column(name = "idTrainer",nullable = false)
-    private int idTrainer;
+    private int idcalificacion;
+    @Column(name = "calificadocliente", length = 45, nullable = false)
+    private String calificado;//la calificacion que se le da al trainer
+    @ManyToOne
+    @JoinColumn(name = "idcliente", nullable = false)
+    private  Cliente cliente;
 
-    public Calificaciones(){
-    }
-
-    public Calificaciones(int idCalificacion, String calificado, int idTrainer) {
-        this.idCalificacion = idCalificacion;
+    public Calificaciones(int idcalificacion, String calificado, Cliente cliente) {
+        this.idcalificacion = idcalificacion;
         this.calificado = calificado;
-        this.idTrainer = idTrainer;
+        this.cliente = cliente;
     }
 
-    public int getIdCalificacion() {
-        return idCalificacion;
+    public Calificaciones() {
+        super();
     }
 
-    public void setIdCalificacion(int idCalificacion) {
-        this.idCalificacion = idCalificacion;
+
+    public int getIdcalificacion() {
+        return idcalificacion;
+    }
+
+    public void setIdcalificacion(int idcalificacion) {
+        this.idcalificacion = idcalificacion;
     }
 
     public String getCalificado() {
@@ -38,11 +47,11 @@ public class Calificaciones {
         this.calificado = calificado;
     }
 
-    public int getIdTrainer() {
-        return idTrainer;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdTrainer(int idTrainer) {
-        this.idTrainer = idTrainer;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

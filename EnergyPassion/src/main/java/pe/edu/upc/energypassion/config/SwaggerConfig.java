@@ -16,6 +16,6 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("pe.edu.upc.energypassion.controllers"))
                 .paths(PathSelectors.any())
-                .build();
+                 .build();
     }
 }

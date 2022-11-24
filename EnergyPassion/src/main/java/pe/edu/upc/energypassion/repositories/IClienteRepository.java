@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface IClienteRepository extends JpaRepository<Cliente,Integer> {
 
-    @Query("from Cliente cli " + " where cli.Nombre like %:Nombre")
-    List<Cliente> buscarnombreCliente(@Param("Nombre") String Nombre);
+    @Query("from Cliente cli " + " where cli.nombre like %:nombre")
+    List<Cliente> buscarnombreCliente(@Param("nombre") String nombre);
 }

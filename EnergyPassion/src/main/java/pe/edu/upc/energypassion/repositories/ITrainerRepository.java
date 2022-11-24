@@ -10,7 +10,7 @@ import java.util.Date;
 @Repository
 public interface ITrainerRepository extends JpaRepository<Trainer,Integer> {
     //JPQL
-    @Query("FROM Trainer t WHERE t.nombre LIKE %:nameTrainer")
-    List<Trainer> buscarNombre(@Param("nameTrainer") String nameTrainer);
+    @Query("FROM Trainer t WHERE t.nombre LIKE %:nametrainer")
+    List<Trainer> buscarNombre(@Param("nametrainer") String nametrainer);
 
 }

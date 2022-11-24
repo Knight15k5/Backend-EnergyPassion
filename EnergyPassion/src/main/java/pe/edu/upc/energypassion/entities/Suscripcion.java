@@ -1,66 +1,67 @@
 package pe.edu.upc.energypassion.entities;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 @Entity
-@Table(name = "Suscripcion")
-public class Suscripcion implements Serializable{
+@Table(name = "suscripcion")
+public class Suscripcion implements Serializable {
     private static final long serialVersionUID = 1L;
-
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idSuscripcion;
-    @Column(name = "Precio_del_plan",length = 45,nullable = false)
-    private int Precio_del_plan;
-    @Column(name = "Descripcion_plan",length = 45,nullable = false)
-    private String Descripcion_plan;
+    private int idsuscripcion;
+    @Column(name = "precio_plan", length = 45, nullable = false)
+    private int precio_plan;
+    @Column(name = "descripcion_plan", length = 45, nullable = false)
+    private String descripcion_plan;
 
     @ManyToOne
-    @JoinColumn(name = "idTipo_Suscripcion", nullable = false)
-    private Tipo_Suscripcion Tipo_Suscripcion;
+    @JoinColumn(name = "idtiposuscripcion", nullable = false)//revisar las columnas y filas
+    private TipoSuscripcion tiposuscripcion;
 
-    public Suscripcion(int idSuscripcion, int precio_del_plan, String descripcion_plan, pe.edu.upc.energypassion.entities.Tipo_Suscripcion tipo_Suscripcion) {
-        this.idSuscripcion = idSuscripcion;
-        Precio_del_plan = precio_del_plan;
-        Descripcion_plan = descripcion_plan;
-        Tipo_Suscripcion = tipo_Suscripcion;
+    public Suscripcion(int idsuscripcion, int precio_plan, String descripcion_plan, TipoSuscripcion tiposuscripcion) {
+        this.idsuscripcion = idsuscripcion;
+        this.precio_plan = precio_plan;
+        this.descripcion_plan = descripcion_plan;
+        this.tiposuscripcion = tiposuscripcion;
     }
+
     public Suscripcion() {
         super();
-
-    }
-    public int getIdSuscripcion() {
-        return idSuscripcion;
     }
 
-    public void setIdSuscripcion(int idSuscripcion) {
-        this.idSuscripcion = idSuscripcion;
+
+    public int getIdsuscripcion() {
+        return idsuscripcion;
     }
 
-    public int getPrecio_del_plan() {
-        return Precio_del_plan;
+    public void setIdsuscripcion(int idsuscripcion) {
+        this.idsuscripcion = idsuscripcion;
     }
 
-    public void setPrecio_del_plan(int precio_del_plan) {
-        Precio_del_plan = precio_del_plan;
+    public int getPrecio_plan() {
+        return precio_plan;
+    }
+
+    public void setPrecio_plan(int precio_plan) {
+        this.precio_plan = precio_plan;
     }
 
     public String getDescripcion_plan() {
-        return Descripcion_plan;
+        return descripcion_plan;
     }
 
     public void setDescripcion_plan(String descripcion_plan) {
-        Descripcion_plan = descripcion_plan;
+        this.descripcion_plan = descripcion_plan;
     }
 
-    public pe.edu.upc.energypassion.entities.Tipo_Suscripcion getTipo_Suscripcion() {
-        return Tipo_Suscripcion;
+    public TipoSuscripcion getTiposuscripcion() {
+        return tiposuscripcion;
     }
 
-    public void setTipo_Suscripcion(pe.edu.upc.energypassion.entities.Tipo_Suscripcion tipo_Suscripcion) {
-        Tipo_Suscripcion = tipo_Suscripcion;
+    public void setTiposuscripcion(TipoSuscripcion tiposuscripcion) {
+        this.tiposuscripcion = tiposuscripcion;
     }
 }

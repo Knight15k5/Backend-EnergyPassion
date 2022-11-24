@@ -1,13 +1,13 @@
 package pe.edu.upc.energypassion.serviceinterface;
+import pe.edu.upc.energypassion.entities.TipoSuscripcion;
 
-import pe.edu.upc.energypassion.entities.Tipo_Suscripcion;
 
 import java.util.List;
 
 public interface ITipoSuscripcionService {
 
-    public void insert(Tipo_Suscripcion tipo_suscripcion);
-    List<Tipo_Suscripcion>list();
-    public void delete(int idTipoSuscripcion);
-    List<Tipo_Suscripcion> search(int idTipoSuscripcion);
+    public void insert(TipoSuscripcion tiposuscripcion);
+    List<TipoSuscripcion> list();
+    public void delete(int idtiposuscripcion);
+    List<TipoSuscripcion> search(int idtiposuscripcion);
 }

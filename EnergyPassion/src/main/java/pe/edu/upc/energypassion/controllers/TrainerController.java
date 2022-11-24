@@ -13,7 +13,7 @@ import pe.edu.upc.energypassion.entities.Rutinas;
 import pe.edu.upc.energypassion.entities.Calificaciones;
 
 @RestController
-@RequestMapping("/trainers")
+@RequestMapping("/trainer")
 
 public class TrainerController {
     @Autowired

@@ -18,10 +18,10 @@ public class TrainerServicelmp implements ITrainerService {
     public List<Trainer>list(){return tR.findAll();}
 
     @Override
-    public void delete(int idTRainer) { tR.deleteById(idTRainer);}
+    public void delete(int idtrainer) { tR.deleteById(idtrainer);}
 
     @Override
-    public List<Trainer> search(String nameTrainer) {return tR.buscarNombre(nameTrainer);}
+    public List<Trainer> search(String nametrainer) {return tR.buscarNombre(nametrainer);}
 
 
 }

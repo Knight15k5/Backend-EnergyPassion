@@ -3,9 +3,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.energypassion.serviceinterface.ICalificacionService;
 import pe.edu.upc.energypassion.entities.Calificaciones;
+
+import java.text.ParseException;
 import java.util.List;
 @RestController
-@RequestMapping("/calificaciones")
+@RequestMapping("/calificacion")
 
 public class CalificacionesController {
     @Autowired
@@ -24,5 +26,6 @@ public class CalificacionesController {
     public void  modificar(@RequestBody Calificaciones c){
         pS.insert(c);}
     @PostMapping("/buscar")
-    public List<Calificaciones> buscar(@RequestBody Calificaciones c){return pS.search(c.getCalificado());}
+    public List<Calificaciones> buscar(@RequestBody Calificaciones c)throws ParseException
+    {return pS.search(c.getCalificado());}
 }
