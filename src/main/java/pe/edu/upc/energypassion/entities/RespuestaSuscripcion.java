@@ -4,11 +4,11 @@ import java.time.format.SignStyle;
 
 public class RespuestaSuscripcion {
     private String suscripcion;
-    private String tipoSuscripcion;
+    private String tiposuscripcion;
 
-    public RespuestaSuscripcion(String suscripcion, String tipoSuscripcion) {
+    public RespuestaSuscripcion(String suscripcion, String tiposuscripcion) {
         this.suscripcion = suscripcion;
-        this.tipoSuscripcion = tipoSuscripcion;
+        this.tiposuscripcion = tiposuscripcion;
     }
 
     public RespuestaSuscripcion() {
@@ -22,11 +22,13 @@ public class RespuestaSuscripcion {
         this.suscripcion = suscripcion;
     }
 
-    public String getTipoSuscripcion() {
-        return tipoSuscripcion;
+    public String getTiposuscripcion() {
+        return tiposuscripcion;
     }
 
-    public void setTipoSuscripcion(String tipoSuscripcion) {
-        this.tipoSuscripcion = tipoSuscripcion;
+    public void setTiposuscripcion(String tiposuscripcion) {
+        this.tiposuscripcion = tiposuscripcion;
     }
+
+
 }

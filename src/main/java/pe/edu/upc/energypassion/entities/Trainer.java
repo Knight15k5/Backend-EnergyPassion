@@ -16,9 +16,9 @@ public class Trainer implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTrainer;
-    @Column(name = "nombret", length = 45, nullable = false)
-    private String nombret;
+    private int idtrainer;
+    @Column(name = "nombre", length = 45, nullable = false)
+    private String nombre;
     @Column(name = "apellido", length = 45, nullable = false)
     private String apellido;
     @Column(name = "horario", length = 45, nullable = false)
@@ -35,77 +35,116 @@ public class Trainer implements Serializable{
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "idRutinas", nullable = false)
+    @JoinColumn(name = "idrutinas", nullable = false)
     private Rutinas rutinas;
     @ManyToOne
-    @JoinColumn(name = "idCalificacion", nullable = false)
+    @JoinColumn(name = "idcalificacion", nullable = false)
     private Calificaciones calificaciones;
 
-    public Trainer() {
-    }
-    public Trainer(int idTrainer, String nombret, String apellido, String horario, String edad, String sexo, String nickname, String password, String email, Rutinas rutinas, Calificaciones calificaciones) {
-        this.idTrainer = idTrainer;
-        this.nombret = nombret;
+    public Trainer(int idtrainer, String nombre, String apellido, String horario, String edad, String sexo, String nickname, String password, String email, Rutinas rutinas, Calificaciones calificaciones) {
+        this.idtrainer = idtrainer;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.horario = horario;
+        this.edad = edad;
+        this.sexo = sexo;
         this.nickname = nickname;
-        this.horario=horario;
-        this.email=email;
-        this.edad=edad;
-        this.apellido=apellido;
-        this.password=password;
-        this.sexo=sexo;
-        this.rutinas=rutinas;
-        this.calificaciones=calificaciones;
+        this.password = password;
+        this.email = email;
+        this.rutinas = rutinas;
+        this.calificaciones = calificaciones;
     }
 
-    public int getIdTrainer() {
-        return idTrainer;
+    public Trainer() {
+        super();
     }
 
-    public void setIdTrainer(int idTrainer) {
-        this.idTrainer = idTrainer;
+
+    public int getIdtrainer() {
+        return idtrainer;
+    }
+
+    public void setIdtrainer(int idtrainer) {
+        this.idtrainer = idtrainer;
     }
 
     public String getNombre() {
-        return nombret;
+        return nombre;
     }
 
-    public void setNombre(String nombret) {
-        this.nombret = nombret;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getApellido() {return apellido;}
+    public String getApellido() {
+        return apellido;
+    }
 
-    public void setApellido(String apellido) {this.apellido = apellido;}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
-    public String getHorario() {return horario;}
+    public String getHorario() {
+        return horario;
+    }
 
-    public void setHorario(String horario) {this.horario = horario;}
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
 
-    public String getEdad() {return edad;}
+    public String getEdad() {
+        return edad;
+    }
 
-    public void setEdad(String edad) {this.edad = edad;}
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
 
-    public String getSexo() {return sexo;}
+    public String getSexo() {
+        return sexo;
+    }
 
-    public void setSexo(String sexo) {this.sexo = sexo;}
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
 
-    public String getNickname() {return nickname;}
+    public String getNickname() {
+        return nickname;
+    }
 
-    public void setNickname(String nickname) {this.nickname = nickname;}
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
-    public String getPassword() {return password;}
+    public String getPassword() {
+        return password;
+    }
 
-    public void setPassword(String password) {this.password = password;}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-    public String getEmail() {return email;}
+    public String getEmail() {
+        return email;
+    }
 
-    public void setEmail(String email) {this.email = email;}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public Rutinas getRutinas() {return rutinas;}
+    public Rutinas getRutinas() {
+        return rutinas;
+    }
 
-    public void setRutinas(Rutinas rutinas) {this.rutinas = rutinas;}
+    public void setRutinas(Rutinas rutinas) {
+        this.rutinas = rutinas;
+    }
 
-    public Calificaciones getCalificaciones() {return calificaciones;}
+    public Calificaciones getCalificaciones() {
+        return calificaciones;
+    }
 
-    public void setCalificaciones(Calificaciones calificaciones) {this.calificaciones = calificaciones;}
+    public void setCalificaciones(Calificaciones calificaciones) {
+        this.calificaciones = calificaciones;
+    }
 }

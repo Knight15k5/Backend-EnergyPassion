@@ -43,7 +43,7 @@ public class SuscripcionServiceImpl implements ISuscripcionService{
         sR.buscarComplejo().forEach(y->{
             RespuestaSuscripcion r = new RespuestaSuscripcion();
             r.setSuscripcion(y[0]);
-            r.setTipoSuscripcion(y[1]);
+            r.setTiposuscripcion(y[1]);
             lista.add(r);
         });
         return lista;

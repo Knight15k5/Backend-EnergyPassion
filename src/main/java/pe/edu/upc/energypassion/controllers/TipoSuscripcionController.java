@@ -35,6 +35,6 @@ public class TipoSuscripcionController {
     @PostMapping("/buscar")
     public List<TipoSuscripcion> buscar(@RequestBody TipoSuscripcion t) throws ParseException{
 
-        return pService.search(t.getIdTipoSuscripcion());
+        return pService.search(t.getIdtiposuscripcion());
     }
 }

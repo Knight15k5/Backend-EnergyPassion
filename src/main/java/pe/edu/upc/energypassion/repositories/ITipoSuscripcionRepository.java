@@ -11,8 +11,8 @@ import java.util.List;
 public interface ITipoSuscripcionRepository extends JpaRepository<TipoSuscripcion,Integer> {
 
     //JPQL
-    @Query("FROM TipoSuscripcion p WHERE cast(p.idTipoSuscripcion as string )  LIKE %:idTipoSuscripcion")
-    List<TipoSuscripcion> buscarTipoSuscripcion(@Param("idTipoSuscripcion") int idTipoSuscripcion);
+    @Query("FROM TipoSuscripcion p WHERE cast(p.idtiposuscripcion as string )  LIKE %:idtiposuscripcion")
+    List<TipoSuscripcion> buscarTipoSuscripcion(@Param("idtiposuscripcion") int idtiposuscripcion);
 
 
 }

@@ -4,18 +4,18 @@ import java.time.format.SignStyle;
 
 public class Respuesta {
     private String trainer;
-    private String calificaiones;
+    private String calificaciones;
     private String rutinas;
 
-    public Respuesta(String trainer, String calificaiones, String rutinas) {
+    public Respuesta(String trainer, String calificaciones, String rutinas) {
         this.trainer = trainer;
-        this.calificaiones = calificaiones;
+        this.calificaciones = calificaciones;
         this.rutinas = rutinas;
     }
 
     public Respuesta() {
-
     }
+
 
     public String getTrainer() {
         return trainer;
@@ -25,12 +25,12 @@ public class Respuesta {
         this.trainer = trainer;
     }
 
-    public String getCalificaiones() {
-        return calificaiones;
+    public String getCalificaciones() {
+        return calificaciones;
     }
 
-    public void setCalificaiones(String calificaiones) {
-        this.calificaiones = calificaiones;
+    public void setCalificaciones(String calificaciones) {
+        this.calificaciones = calificaciones;
     }
 
     public String getRutinas() {
@@ -40,5 +40,4 @@ public class Respuesta {
     public void setRutinas(String rutinas) {
         this.rutinas = rutinas;
     }
-
 }

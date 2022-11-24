@@ -3,41 +3,39 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "TipoSuscripcion")
+@Table(name = "tiposuscripcion")
 public class TipoSuscripcion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTipoSuscripcion;
+    private int idtiposuscripcion;
 
 
     @Column(name = "Descripcion_tipo", length = 45, nullable = false)
-    private int Descripcion_tipo;
+    private int descripcion_tipo;
 
+    public TipoSuscripcion(int idtiposuscripcion, int descripcion_tipo) {
+        this.idtiposuscripcion = idtiposuscripcion;
+        this.descripcion_tipo = descripcion_tipo;
+    }
 
     public TipoSuscripcion() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-    public TipoSuscripcion(int idTipoSuscripcion, int descripcion_tipo) {
-        this.idTipoSuscripcion = idTipoSuscripcion;
-        this.Descripcion_tipo = descripcion_tipo;
+
+    public int getIdtiposuscripcion() {
+        return idtiposuscripcion;
     }
 
-    public int getIdTipoSuscripcion() {
-        return idTipoSuscripcion;
-    }
-
-    public void setIdTipoSuscripcion(int idTipoSuscripcion) {
-        this.idTipoSuscripcion = idTipoSuscripcion;
+    public void setIdtiposuscripcion(int idtiposuscripcion) {
+        this.idtiposuscripcion = idtiposuscripcion;
     }
 
     public int getDescripcion_tipo() {
-        return Descripcion_tipo;
+        return descripcion_tipo;
     }
 
     public void setDescripcion_tipo(int descripcion_tipo) {
-        Descripcion_tipo = descripcion_tipo;
+        this.descripcion_tipo = descripcion_tipo;
     }
-
 }

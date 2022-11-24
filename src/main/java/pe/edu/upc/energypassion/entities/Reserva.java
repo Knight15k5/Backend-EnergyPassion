@@ -17,98 +17,97 @@ public class Reserva implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idReserva;
+    private int idreserva;
 
     @Column(name = "Mensaje", length = 45, nullable = false)
-    private String Mensaje;
+    private String mensaje;
 
     @Column(name = "Fecha", length = 45, nullable = false)
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private Date Fecha;
+    private Date fecha;
     @Column(name = "Hora", length = 45, nullable = false)
-    private String Hora;
+    private String hora;
     @ManyToOne
     @JoinColumn(name = "CLiente", nullable = false)
-    private Cliente Cliente;
+    private Cliente cliente;
 
     @ManyToOne
     @JoinColumn(name = "Trainer", nullable = false)
-    private Trainer Trainer;
+    private Trainer trainer;
 
     @ManyToOne
     @JoinColumn(name = "Rutinas", nullable = false)
-    private Rutinas Rutinas;
+    private Rutinas rutinas;
 
-    public Reserva(int idReserva, String mensaje, Date fecha, String hora, pe.edu.upc.energypassion.entities.Cliente cliente, pe.edu.upc.energypassion.entities.Trainer trainer, pe.edu.upc.energypassion.entities.Rutinas rutinas) {
-        this.idReserva = idReserva;
-        Mensaje = mensaje;
-        Fecha = fecha;
-        Hora = hora;
-        Cliente = cliente;
-        Trainer = trainer;
-        Rutinas = rutinas;
+    public Reserva(int idreserva, String mensaje, Date fecha, String hora, Cliente cliente, Trainer trainer, Rutinas rutinas) {
+        this.idreserva = idreserva;
+        this.mensaje = mensaje;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.cliente = cliente;
+        this.trainer = trainer;
+        this.rutinas = rutinas;
     }
 
     public Reserva() {
         super();
     }
 
-
-    public int getIdReserva() {
-        return idReserva;
+    public int getIdreserva() {
+        return idreserva;
     }
 
-    public void setIdReserva(int idReserva) {
-        this.idReserva = idReserva;
+    public void setIdreserva(int idreserva) {
+        this.idreserva = idreserva;
     }
 
     public String getMensaje() {
-        return Mensaje;
+        return mensaje;
     }
 
     public void setMensaje(String mensaje) {
-        Mensaje = mensaje;
+        this.mensaje = mensaje;
     }
 
     public Date getFecha() {
-        return Fecha;
+        return fecha;
     }
 
     public void setFecha(Date fecha) {
-        Fecha = fecha;
+        this.fecha = fecha;
     }
 
     public String getHora() {
-        return Hora;
+        return hora;
     }
 
     public void setHora(String hora) {
-        Hora = hora;
+        this.hora = hora;
     }
 
-    public pe.edu.upc.energypassion.entities.Cliente getCliente() {
-        return Cliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setCliente(pe.edu.upc.energypassion.entities.Cliente cliente) {
-        Cliente = cliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public pe.edu.upc.energypassion.entities.Trainer getTrainer() {
-        return Trainer;
+    public Trainer getTrainer() {
+        return trainer;
     }
 
-    public void setTrainer(pe.edu.upc.energypassion.entities.Trainer trainer) {
-        Trainer = trainer;
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
     }
 
-    public pe.edu.upc.energypassion.entities.Rutinas getRutinas() {
-        return Rutinas;
+    public Rutinas getRutinas() {
+        return rutinas;
     }
 
-    public void setRutinas(pe.edu.upc.energypassion.entities.Rutinas rutinas) {
-        Rutinas = rutinas;
+    public void setRutinas(Rutinas rutinas) {
+        this.rutinas = rutinas;
     }
 }
 

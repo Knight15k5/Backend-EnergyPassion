@@ -30,7 +30,7 @@ public class RutinasController {
 
     @PostMapping("/buscar")
     public  List<Rutinas> buscar(@RequestBody Rutinas r){
-        return  rService.search(r.getIdRutinas());
+        return  rService.search(r.getIdrutinas());
     }
 
 }

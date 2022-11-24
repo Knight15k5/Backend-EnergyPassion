@@ -7,7 +7,7 @@ import pe.edu.upc.energypassion.entities.Calificaciones;
 import java.text.ParseException;
 import java.util.List;
 @RestController
-@RequestMapping("/calificaciones")
+@RequestMapping("/calificacion")
 
 public class CalificacionesController {
     @Autowired

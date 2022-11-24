@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface IRutinasRepository extends JpaRepository<Rutinas,Integer> {
 
-    @Query("from Rutinas r " + " where cast(r.idRutinas as string) like %:idRutinas ")
-    List<Rutinas> buscarIDrutinas(@Param("idRutinas") int idRutinas);
+    @Query("from Rutinas r " + " where cast(r.idrutinas as string) like %:idrutinas ")
+    List<Rutinas> buscarIDrutinas(@Param("idrutinas") int idrutinas);
 }

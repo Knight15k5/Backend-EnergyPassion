@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface ISuscripcionRepository extends JpaRepository<Suscripcion,Integer> {
  //JPQL
- @Query("FROM Suscripcion p WHERE p.Descripcion_plan LIKE %:Descripcion_plan")
- List<Suscripcion> buscarSuscripcions(@Param("Descripcion_plan") String Descripcion_plan);
+ @Query("FROM Suscripcion p WHERE p.descripcion_plan LIKE %:descripcion_plan")
+ List<Suscripcion> buscarSuscripcions(@Param("descripcion_plan") String descripcion_plan);
 
- @Query(value = "SELECT suscripcion.descripcion_plan, tipo_suscripcion.id_tipo_suscripcion\n" +
-         "FROM suscripcion INNER join tipo_suscripcion ON suscripcion.id_tipo_suscripcion = tipo_suscripcion.id_tipo_suscripcion",nativeQuery = true)
+ @Query(value = "SELECT suscripcion.descripcion_plan, tiposuscripcion.idtiposuscripcion\n" +
+         "FROM Suscripcion INNER join tiposuscripcion ON suscripcion.idtiposuscripcion = tiposuscripcion.idtiposuscripcion",nativeQuery = true)
  List<String[]> buscarComplejo();
 }

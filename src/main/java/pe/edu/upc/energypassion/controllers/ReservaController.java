@@ -33,7 +33,10 @@ public class ReservaController {
 
             listaR = ps.buscarTrainer(r.getTrainer().getNombre());
         }
+        if (listaR.isEmpty()) {
 
+            listaR = ps.buscarCliente(r.getCliente().getNombre());
+        } //agregue esto
         return listaR;
     }
 

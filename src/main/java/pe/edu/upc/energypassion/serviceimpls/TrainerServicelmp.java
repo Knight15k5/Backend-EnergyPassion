@@ -37,7 +37,7 @@ public class TrainerServicelmp implements ITrainerService {
             Respuesta r = new Respuesta();
             r.setTrainer(y[0]);
             r.setRutinas(y[1]);
-            r.setCalificaiones(y[2]);
+            r.setCalificaciones(y[2]);
             lista.add(r);
         });
         return lista;
